@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Features\ProgramingLanguage\Queries\" />
-    <Folder Include="Features\ProgramingLanguage\Rules\" />
   </ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
@@ -17,6 +16,7 @@
 	</ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\corePackages\Core.CrossCuttingConcers\Core.CrossCuttingConcerns.csproj" />
     <ProjectReference Include="..\..\..\corePackages\Core.Persistence\Core.Persistence.csproj" />
     <ProjectReference Include="..\Kodlama.Io.Devs.Domain\Kodlama.Io.Devs.Domain.csproj" />
   </ItemGroup>

@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Kodlama.Io.Devs.Application.Features;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace Kodlama.Io.Devs.Application
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddScoped<ProgramingLanguageBusinessRules>();
             return services;
         }
     }
