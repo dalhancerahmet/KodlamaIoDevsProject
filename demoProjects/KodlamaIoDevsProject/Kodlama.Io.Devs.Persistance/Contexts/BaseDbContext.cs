@@ -1,5 +1,4 @@
-﻿using Domain.Entities;
-using Kodlama.Io.Devs.Domain.Entities;
+﻿using Kodlama.Io.Devs.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -16,9 +15,9 @@ namespace Kodlama.Io.Devs.Persistance.Contexts
         public DbSet<ProgramingLanguage> ProgramingLanguages { get; set; }
 
 
-        public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
+        public BaseDbContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
         {
-            Configuration = configuration;
+            
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

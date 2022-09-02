@@ -17,7 +17,6 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\templateProject\Persistence\Persistence.csproj" />
     <ProjectReference Include="..\Kodlama.Io.Devs.Application\Kodlama.Io.Devs.Application.csproj" />
   </ItemGroup>
 

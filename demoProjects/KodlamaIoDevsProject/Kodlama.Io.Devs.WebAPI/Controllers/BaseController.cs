@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Kodlama.Io.Devs.WebAPI.Controllers
@@ -7,5 +8,7 @@ namespace Kodlama.Io.Devs.WebAPI.Controllers
     [ApiController]
     public class BaseController : ControllerBase
     {
+        protected IMediator? Mediator => _mediator ??= HttpContext.RequestServices.GetService<IMediator>();
+        private IMediator? _mediator;
     }
 }

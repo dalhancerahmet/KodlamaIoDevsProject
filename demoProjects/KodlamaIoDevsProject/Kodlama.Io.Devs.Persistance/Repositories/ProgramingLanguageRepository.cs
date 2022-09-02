@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Kodlama.Io.Devs.Persistance.Repositories
 {
-    public class ProgramingLanguageRepository : EfRepositoryBase<ProgramingLanguage, BaseDbContext>, IProgramingLanguageRepository
+    public class ProgramingLanguageRepository : EfRepositoryBase<ProgramingLanguage,BaseDbContext>, IProgramingLanguageRepository
     {
         public ProgramingLanguageRepository(BaseDbContext context) : base(context)
         {
