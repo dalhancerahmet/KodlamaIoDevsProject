@@ -17,6 +17,12 @@ namespace Kodlama.Io.Devs.WebAPI.Controllers
            ProgramingLanguageListModel result= await Mediator.Send(query);
             return Ok(result);
         }
+        [HttpGet("getById")]
+        public async Task<IActionResult> GetById([FromQuery] GetByIdProgramingLanguageQuery getByIdProgramingLanguageQuery)
+        {
+           ProgramingLanguageGetByIdDto programingLanguage= await Mediator.Send(getByIdProgramingLanguageQuery);
+            return Ok(programingLanguage);
+        }
 
         [HttpPost("create")]
         public async Task<IActionResult> Add([FromBody] CreateProgramingLanguageCommand createBrandCommand)
