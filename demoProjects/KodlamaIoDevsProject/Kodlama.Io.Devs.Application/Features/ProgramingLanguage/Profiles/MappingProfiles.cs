@@ -18,8 +18,8 @@ namespace Kodlama.Io.Devs.Application.Features
             CreateMap<ProgramingLanguage, DeletedProgramingLanguageDto>().ReverseMap();
             CreateMap<ProgramingLanguage, UpdatedProgramingLanguageDto>().ReverseMap();
             CreateMap<ProgramingLanguage, UpdateProgramingLanguageCommand>().ReverseMap();
-
-
+            CreateMap<UpdateProgramingLanguageCommand, ProgramingLanguage>().ReverseMap();
+            
         }
     }
 }

@@ -21,7 +21,7 @@ namespace Kodlama.Io.Devs.Application.Features
         public async Task ProgramingLanguageNameCanNotBeDuplicatedWhenInserted(string name)
         {
            var result=await _ProgramingLanguageRepository.GetListAsync(p => p.Name == name);
-            if (result != null)
+            if (result.Items.Any())
                 throw new BusinessException("Programlama dili zaten var.");
         }
     }

@@ -15,12 +15,12 @@ namespace Kodlama.Io.Devs.Application.Features
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public class UpdateProgramingLanguageCommandHandle : IRequestHandler<UpdateProgramingLanguageCommand, UpdatedProgramingLanguageDto>
+        public class UpdateProgramingLanguageCommandHandler : IRequestHandler<UpdateProgramingLanguageCommand, UpdatedProgramingLanguageDto>
         {
-            private readonly IProgramingLanguageRepository _programingLanguageRepository;
-            private readonly Mapper _mapper;
+            private IProgramingLanguageRepository _programingLanguageRepository;
+            private IMapper _mapper;
 
-            public UpdateProgramingLanguageCommandHandle(IProgramingLanguageRepository programingLanguageRepository, Mapper mapper)
+            public UpdateProgramingLanguageCommandHandler(IProgramingLanguageRepository programingLanguageRepository, IMapper mapper)
             {
                 _programingLanguageRepository = programingLanguageRepository;
                 _mapper = mapper;
@@ -28,12 +28,13 @@ namespace Kodlama.Io.Devs.Application.Features
 
             public async Task<UpdatedProgramingLanguageDto> Handle(UpdateProgramingLanguageCommand request, CancellationToken cancellationToken)
             {
-                ProgramingLanguage programingLanguage=await _programingLanguageRepository.GetAsync(p => p.Id == request.Id);
-                programingLanguage.Name=request.Name;
-                await _programingLanguageRepository.UpdateAsync(programingLanguage);
-                UpdatedProgramingLanguageDto mappedUpdatedProgramingLanguage=_mapper.Map<UpdatedProgramingLanguageDto>(programingLanguage);
-                return mappedUpdatedProgramingLanguage;
+                var mappedProgramingLanguage = _mapper.Map<ProgramingLanguage>(request);
+                var updatedProgramingLanguage = await _programingLanguageRepository.UpdateAsync(mappedProgramingLanguage);
+                var programingLanguageToReturn = _mapper.Map<UpdatedProgramingLanguageDto>(updatedProgramingLanguage);
+
+                return programingLanguageToReturn;
             }
         }
+
     }
 }
