@@ -8,5 +8,7 @@ namespace Kodlama.Io.Devs.Application.Features
 {
     public class ProgramingLanguageListDto
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

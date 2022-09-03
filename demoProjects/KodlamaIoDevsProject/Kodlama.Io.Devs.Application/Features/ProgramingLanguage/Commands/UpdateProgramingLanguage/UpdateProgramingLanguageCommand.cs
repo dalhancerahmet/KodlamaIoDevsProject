@@ -30,9 +30,8 @@ namespace Kodlama.Io.Devs.Application.Features
             {
                 var mappedProgramingLanguage = _mapper.Map<ProgramingLanguage>(request);
                 var updatedProgramingLanguage = await _programingLanguageRepository.UpdateAsync(mappedProgramingLanguage);
-                var programingLanguageToReturn = _mapper.Map<UpdatedProgramingLanguageDto>(updatedProgramingLanguage);
-
-                return programingLanguageToReturn;
+                var mappedUpdatedPrograminLanguage = _mapper.Map<UpdatedProgramingLanguageDto>(updatedProgramingLanguage);
+                return mappedUpdatedPrograminLanguage;
             }
         }
 

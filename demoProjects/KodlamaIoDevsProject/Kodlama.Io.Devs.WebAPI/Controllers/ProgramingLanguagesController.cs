@@ -1,4 +1,5 @@
-﻿using Kodlama.Io.Devs.Application.Features;
+﻿using Core.Application.Requests;
+using Kodlama.Io.Devs.Application.Features;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +10,14 @@ namespace Kodlama.Io.Devs.WebAPI.Controllers
     [ApiController]
     public class ProgramingLanguagesController : BaseController
     {
+        [HttpGet("getlist")]
+        public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest )
+        {
+            GetListProgramingLanguageQuery query = new() { PageRequest = pageRequest };
+           ProgramingLanguageListModel result= await Mediator.Send(query);
+            return Ok(result);
+        }
+
         [HttpPost("create")]
         public async Task<IActionResult> Add([FromBody] CreateProgramingLanguageCommand createBrandCommand)
         {

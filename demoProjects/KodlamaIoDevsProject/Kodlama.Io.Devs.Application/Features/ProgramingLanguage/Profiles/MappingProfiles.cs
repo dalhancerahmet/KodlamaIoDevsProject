@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Core.Persistence.Paging;
 using Kodlama.Io.Devs.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -14,12 +15,16 @@ namespace Kodlama.Io.Devs.Application.Features
         {
             CreateMap<ProgramingLanguage, CreatedProgramingLanguageDto>().ReverseMap();
             CreateMap<ProgramingLanguage,CreateProgramingLanguageCommand>().ReverseMap();
+
             CreateMap<ProgramingLanguage, DeleteProgramingLanguageCommand>().ReverseMap();
             CreateMap<ProgramingLanguage, DeletedProgramingLanguageDto>().ReverseMap();
+
             CreateMap<ProgramingLanguage, UpdatedProgramingLanguageDto>().ReverseMap();
             CreateMap<ProgramingLanguage, UpdateProgramingLanguageCommand>().ReverseMap();
-            CreateMap<UpdateProgramingLanguageCommand, ProgramingLanguage>().ReverseMap();
-            
+
+            CreateMap<IPaginate<ProgramingLanguage>, ProgramingLanguageListModel>().ReverseMap();
+            CreateMap<ProgramingLanguage, ProgramingLanguageListDto>().ReverseMap();
+
         }
     }
 }
