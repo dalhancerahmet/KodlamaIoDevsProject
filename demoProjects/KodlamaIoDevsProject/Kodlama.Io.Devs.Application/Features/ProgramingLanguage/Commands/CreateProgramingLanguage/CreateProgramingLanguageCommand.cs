@@ -29,7 +29,7 @@ namespace Kodlama.Io.Devs.Application.Features
             public async Task<CreatedProgramingLanguageDto> Handle(CreateProgramingLanguageCommand request, CancellationToken cancellationToken)
             {
                 await _programingLanguageBusinessRules.ProgramingLanguageNameCanNotBeDuplicatedWhenInserted(request.Name);
-
+                
                 ProgramingLanguage mappedProgramingLanguage= _mapper.Map<ProgramingLanguage>(request);
                 ProgramingLanguage createdProgramingLanguage=await _programingLanguageRepository.AddAsync(mappedProgramingLanguage);
                 CreatedProgramingLanguageDto mappedCreatedProgramingLanguage =_mapper.Map<CreatedProgramingLanguageDto>(createdProgramingLanguage);

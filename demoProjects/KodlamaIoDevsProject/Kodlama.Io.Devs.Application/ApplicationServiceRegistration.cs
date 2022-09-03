@@ -1,4 +1,6 @@
-﻿using Kodlama.Io.Devs.Application.Features;
+﻿using Core.Application.Pipelines.Validation;
+using FluentValidation;
+using Kodlama.Io.Devs.Application.Features;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -17,6 +19,8 @@ namespace Kodlama.Io.Devs.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddScoped<ProgramingLanguageBusinessRules>();
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
             return services;
         }
     }
