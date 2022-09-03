@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using Kodlama.Io.Devs.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Kodlama.Io.Devs.Application.Features
 {
-    public class CreateProgramingLanguageCommandValidator :AbstractValidator<ProgramingLanguage>
+    public class CreateProgramingLanguageCommandValidator :AbstractValidator<CreateProgramingLanguageCommand>
     {
         public CreateProgramingLanguageCommandValidator()
         {
