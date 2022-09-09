@@ -14,11 +14,8 @@ namespace Kodlama.Io.Devs.Persistance.Contexts
         protected IConfiguration Configuration { get; set; }
         public DbSet<ProgramingLanguage> ProgramingLanguages { get; set; }
 
-
         public BaseDbContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
-        {
-            
-        }
+        {}
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -26,9 +23,10 @@ namespace Kodlama.Io.Devs.Persistance.Contexts
             //    base.OnConfiguring(
             //        optionsBuilder.UseSqlServer(Configuration.GetConnectionString("SomeConnectionString")));
         }
-
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             modelBuilder.Entity<ProgramingLanguage>(a =>
             {
                 a.ToTable("ProgramingLanguage").HasKey(k => k.Id);
