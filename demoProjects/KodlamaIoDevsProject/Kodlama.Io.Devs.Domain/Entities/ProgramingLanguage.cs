@@ -10,5 +10,18 @@ namespace Kodlama.Io.Devs.Domain.Entities
     public class ProgramingLanguage : Entity
     {
         public string Name { get; set; }
+
+        public virtual ICollection<ProgramingLanguageTechnology> ProgramingLanguageTechnologies { get; set; }
+
+        public ProgramingLanguage()
+        {
+
+        }
+
+        public ProgramingLanguage(string name, ICollection<ProgramingLanguageTechnology> programingLanguageTechnologies)
+        {
+            Name = name;
+            ProgramingLanguageTechnologies = programingLanguageTechnologies;
+        }
     }
 }
