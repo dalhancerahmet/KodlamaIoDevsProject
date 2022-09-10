@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace Kodlama.Io.Devs.Application.Features.ProgramingLanguageTechnologies.Dtos
 {
-    public class ProgramingLanguageTechnologyListDto
+    public class UpdatedProgramingLanguageTechnologyDto
     {
         public int Id { get; set; }
-        public int ProgramingLanguageId { get; set; }
         public string Name { get; set; }
-        public string ProgramingLanguageName { get; set; }
-
     }
 }
