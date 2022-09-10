@@ -1,4 +1,5 @@
-﻿using Kodlama.Io.Devs.Application.Services.Repositories;
+﻿using Core.Security.JWT;
+using Kodlama.Io.Devs.Application.Services.Repositories;
 using Kodlama.Io.Devs.Persistance.Contexts;
 using Kodlama.Io.Devs.Persistance.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +23,8 @@ namespace Kodlama.Io.Devs.Persistance
                                                          configuration.GetConnectionString("SqlServerConnectionString")));
             services.AddScoped<IProgramingLanguageRepository, ProgramingLanguageRepository>();
             services.AddScoped<IProgramingLanguageTechnologyRepository, ProgramingLanguageTechnologyRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ITokenHelper, JwtHelper>();
             
             return services;
         }

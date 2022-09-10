@@ -23,6 +23,9 @@
   <ItemGroup>
     <Folder Include="Features\ProgramingLanguageTechnology\Rules\" />
     <Folder Include="Features\ProgramingLanguage\Queries\GetListProgramingLanguageByDynamic\" />
+    <Folder Include="Features\Users\Models\" />
+    <Folder Include="Features\Users\Rules\" />
+    <Folder Include="Features\Users\Queries\" />
   </ItemGroup>
 
 </Project>
